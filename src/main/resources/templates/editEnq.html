@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Enquiry</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Edit Enquiry</h2>
+    <form action="#" th:action="@{/saveEnquiry}" th:object="${enquiryObj}" method="post">
+        <input type="hidden" th:field="*{eid}" /> <!-- Hidden field for enquiry ID -->
+        <div class="form-group">
+            <label for="name">Student Name:</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}" />
+        </div>
+        <div class="form-group">
+            <label for="phno">Student Phone:</label>
+            <input type="text" class="form-control" id="phno" th:field="*{phno}" />
+        </div>
+        <div class="form-group">
+            <label for="classmode">Class Mode:</label>
+            <select class="form-control" id="classmode" th:field="*{classmode}">
+                <option value="">-Select-</option>
+                <option value="classroom">Classroom</option>
+                <option value="online">Online</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="course">Course:</label>
+            <select class="form-control" id="course" th:field="*{course}">
+                <option value="">-Select-</option>
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <option value="devops">DevOps</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="status">Status:</label>
+            <select class="form-control" id="status" th:field="*{status}">
+                <option value="">-Select-</option>
+                <option value="new">New</option>
+                <option value="enrolled">Enrolled</option>
+                <option value="lost">Lost</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <a href="viewEnquiries">View Enquiries</a>
+</div>
+</body>
+</html>
